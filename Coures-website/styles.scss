@@ -27,8 +27,7 @@ body {
 }
 
 .main-header .main-header__logo {
-    /* display: inline-block;
-    vertical-align: middle; */
+    
     font-family: $sourceCodePro;
     font-size: 25px;
     font-weight: bolder;
@@ -44,15 +43,7 @@ body {
     height: 60px;
 }
 
- /*.main-header .main-nav {
-    display: inline-block;
-    width: calc(100% - 140px);
-    vertical-align: middle;
-    text-align: right; */
-    /* display: flex;
-    flex-direction: row; 
-    align-items: center;
-}*/
+
 
 .main-nav__items {
     list-style-type: none;
@@ -64,10 +55,7 @@ body {
     flex-wrap: wrap;
 }
 
-/* .main-nav__item {
-    display: inline-block;
-    white-space: nowrap; 
-} */
+
 
 .main-nav__item:nth-child(1),
 .main-nav__item:nth-child(2) {
@@ -84,23 +72,18 @@ body {
     padding-right: 20px;
 }
 
-/* .li-first {
-    margin-right: 25px;
-} */
+
 
 .main-nav__item a:hover,
 .main-nav__item a:active {
     color: #fef9f8;
     background: #ef9273;
     border-radius: 40px;
-    transition: 0.3s ease; /* tranzicija elementa iz jednog u drugo stanje */
+    transition: 0.3s ease; 
 }
 
 .hero-wrapper {
-    /* height: 500px; */
-    /* border: 1px solid red; */
-    /* margin: 15px; */
-    /* background-color: #7c544d; */
+    
     padding: 20px;
     font-family: $courierPrime;
     width: 100%;
@@ -155,8 +138,8 @@ body {
     flex-basis: 100%;
     font-family: $courierPrime;
     font-size: 2.5em;
-    letter-spacing: 5px; /* dodaje razmak izmedju slova */
-    text-shadow: 3px 3px #eb9a7f; /* dodaje senku iza svakog slova nekog teksta */
+    letter-spacing: 5px; 
+    text-shadow: 3px 3px #eb9a7f; 
 }
 
 .plans-wrapper .plans-wrapper__article {
@@ -167,17 +150,17 @@ body {
     flex-flow: column nowrap;
     align-items: center;
     flex-basis: 30%;
-    min-width: 350px; /* definise minimalnu sirinu elementa */
+    min-width: 350px; 
     border-radius: 25px;
     border: 3px solid black;
     margin-bottom: 20px;
-    box-shadow: $boxShadowDark; /* dodaje senku iza box-a (moze i ka unutra uz inset) */
+    box-shadow: $boxShadowDark; 
 }
 
 .advanced { 
     order: 1;
     height: 650px;
-    min-height: 700px; /* minimalna visina, bice izmenjeno u radu sa responsivnesom */
+    min-height: 700px; 
     background: $cardColorDarken !important;
 }
 
@@ -201,7 +184,7 @@ body {
     letter-spacing: 3px; 
     text-decoration: underline;
     text-align: center;
-    text-underline-offset: 5px; /* definise razmak izmedju teksta i underline-a */
+    text-underline-offset: 5px; 
 }
 
 .plans-wrapper__article h2 {
@@ -244,7 +227,7 @@ body {
 .choose-plan__button button:hover {
     cursor: pointer;
     background: lighten($cardColor, 15%);
-    transition: $transitionEaseInOut; /* vreme i nacin implementacije tranzicije na hover dugmeta */
+    transition: $transitionEaseInOut; 
 }
 
 
@@ -270,13 +253,7 @@ body {
     text-shadow: $textShadowLight;
 }
 
-// .about-wrapper__text {
-//     width: 50%;
-//     text-align: center;
-//     @include media('<=tablet') {
-//         width: 80%;
-//     }
-// }
+
 
 .about-wrapper__text {
     font-family: $courierPrime;
@@ -385,7 +362,7 @@ body {
     cursor: pointer;
 }
 
-/* ! Animacije */
+
 @keyframes slider {
     0% {
         background-image: url('./assets/images/hero-image.jpg');
@@ -400,3 +377,54 @@ body {
         background-image: url('./assets/images/hero-image.jpg');
     }
 }
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+    background-color: #000;
+}
+@include media('<=tablet') {
+    .hamburger {
+        display: block;
+    }
+    .main-nav {
+        // display: none;
+        .main-nav__items {
+            position: absolute;
+            left: -100%;
+            top: 110px;
+            gap: 0;
+            width: 100%;
+            flex-direction: column;
+            background-color: #fef9f8;
+            text-align: center;
+            transition: all 0.3s;
+            .main-nav__item {
+                margin: 16px 0;
+            }
+        }
+        .main-nav__items.active {
+            left: 0;
+        }
+    }
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    
+
+}
+
+

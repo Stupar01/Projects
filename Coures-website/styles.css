@@ -32,8 +32,6 @@ body {
 }
 
 .main-header .main-header__logo {
-  /* display: inline-block;
-    vertical-align: middle; */
   font-family: "Source Code Pro", monospace;
   font-size: 25px;
   font-weight: bolder;
@@ -49,15 +47,6 @@ body {
   height: 60px;
 }
 
-/*.main-header .main-nav {
-    display: inline-block;
-    width: calc(100% - 140px);
-    vertical-align: middle;
-    text-align: right; */
-/* display: flex;
-    flex-direction: row; 
-    align-items: center;
-}*/
 .main-nav__items {
   list-style-type: none;
   padding: 0;
@@ -76,10 +65,6 @@ body {
       flex-wrap: wrap;
 }
 
-/* .main-nav__item {
-    display: inline-block;
-    white-space: nowrap; 
-} */
 .main-nav__item:nth-child(1),
 .main-nav__item:nth-child(2) {
   margin-right: 25px;
@@ -95,9 +80,6 @@ body {
   padding-right: 20px;
 }
 
-/* .li-first {
-    margin-right: 25px;
-} */
 .main-nav__item a:hover,
 .main-nav__item a:active {
   color: #fef9f8;
@@ -105,14 +87,9 @@ body {
   border-radius: 40px;
   -webkit-transition: 0.3s ease;
   transition: 0.3s ease;
-  /* tranzicija elementa iz jednog u drugo stanje */
 }
 
 .hero-wrapper {
-  /* height: 500px; */
-  /* border: 1px solid red; */
-  /* margin: 15px; */
-  /* background-color: #7c544d; */
   padding: 20px;
   font-family: "Courier Prime", monospace;
   width: 100%;
@@ -180,9 +157,7 @@ body {
   font-family: "Courier Prime", monospace;
   font-size: 2.5em;
   letter-spacing: 5px;
-  /* dodaje razmak izmedju slova */
   text-shadow: 3px 3px #eb9a7f;
-  /* dodaje senku iza svakog slova nekog teksta */
 }
 
 .plans-wrapper .plans-wrapper__article {
@@ -202,13 +177,11 @@ body {
   -ms-flex-preferred-size: 30%;
       flex-basis: 30%;
   min-width: 350px;
-  /* definise minimalnu sirinu elementa */
   border-radius: 25px;
   border: 3px solid black;
   margin-bottom: 20px;
   -webkit-box-shadow: 5px 5px 4px 3px #333333;
           box-shadow: 5px 5px 4px 3px #333333;
-  /* dodaje senku iza box-a (moze i ka unutra uz inset) */
 }
 
 .advanced {
@@ -217,7 +190,6 @@ body {
           order: 1;
   height: 650px;
   min-height: 700px;
-  /* minimalna visina, bice izmenjeno u radu sa responsivnesom */
   background: #eb9a7f !important;
 }
 
@@ -244,7 +216,6 @@ body {
   text-decoration: underline;
   text-align: center;
   text-underline-offset: 5px;
-  /* definise razmak izmedju teksta i underline-a */
 }
 
 .plans-wrapper__article h2 {
@@ -290,7 +261,6 @@ body {
   background: #f9ece8;
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
-  /* vreme i nacin implementacije tranzicije na hover dugmeta */
 }
 
 /* ! About Section */
@@ -473,7 +443,6 @@ body {
   cursor: pointer;
 }
 
-/* ! Animacije */
 @-webkit-keyframes slider {
   0% {
     background-image: url("./assets/images/hero-image.jpg");
@@ -488,6 +457,7 @@ body {
     background-image: url("./assets/images/hero-image.jpg");
   }
 }
+
 @keyframes slider {
   0% {
     background-image: url("./assets/images/hero-image.jpg");
@@ -500,6 +470,59 @@ body {
   }
   99% {
     background-image: url("./assets/images/hero-image.jpg");
+  }
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+}
+
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color: #000;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+  .main-nav .main-nav__items {
+    position: absolute;
+    left: -100%;
+    top: 110px;
+    gap: 0;
+    width: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    background-color: #fef9f8;
+    text-align: center;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+  .main-nav .main-nav__items .main-nav__item {
+    margin: 16px 0;
+  }
+  .main-nav .main-nav__items.active {
+    left: 0;
+  }
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active .bar:nth-child(1) {
+    -webkit-transform: translateY(8px) rotate(45deg);
+            transform: translateY(8px) rotate(45deg);
+  }
+  .hamburger.active .bar:nth-child(3) {
+    -webkit-transform: translateY(-8px) rotate(-45deg);
+            transform: translateY(-8px) rotate(-45deg);
   }
 }
 /*# sourceMappingURL=styles.css.map */
